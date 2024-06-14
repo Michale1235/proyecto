@@ -4,5 +4,6 @@ numpy
 plotly
 matplotlib
 PyPDF2
+openpyxl
 
 
