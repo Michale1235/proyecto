@@ -48,5 +48,5 @@ elif st.session_state.page == "Página 3: Gráfico":
     st.plotly_chart(pie_chart)
     
 
-cooo
+
      
