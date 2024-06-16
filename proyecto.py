@@ -24,8 +24,17 @@ if st.session_state.page == "Página Principal":
     st.image("logoproyecto.jpeg", use_column_width=True)
     st.title('Huella ecológica')
     st.write('BIENVENIDOS')
-    st.write('La huella ecológica es un indicador del impacto ambiental generado por la demanda humana que se hace de los recursos existentes en los ecosistemas del planeta, relacionándola con la capacidad ecológica de la Tierra de regenerar sus recursos.')
+    st.write('#############')
 
+#pagina 1
+
+
+
+#pagina 2
+
+
+
+#pagina 3
 elif st.session_state.page == "Página 3: Gráfico":
     option = st.selectbox('seleciona el año que quieres visualizar los datos',
                           ('2009', '2010', '2011','2012'))
@@ -46,6 +55,8 @@ elif st.session_state.page == "Página 3: Gráfico":
                      values='Huella Regional Per Capita',
                      names='Ámbito')
     st.plotly_chart(pie_chart)
+
+###pagina 4
     
 
 
