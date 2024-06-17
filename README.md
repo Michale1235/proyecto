@@ -13,8 +13,8 @@
 > Se busca realizar un análisis exploratorio de los datos de la huella ecológica per cápita departamental y por componentes, organizándolos para su mejor lectura. Estos datos, que abarcan el período de 2009 a 2016, fueron extraídos de la plataforma del Ministerio del Ambiente.
 
 ### Menu
-1. [Presentación](https://github.com/Michale1235/proyecto/edit/main/README.md)
-2. [Pagina 1](https://github.com/Michale1235/proyecto/edit/main/README.md)
-2. [Pagina 2](https://github.com/Michale1235/proyecto/edit/main/README.md)
-3. [Pagina 3](https://github.com/Michale1235/proyecto/edit/main/README.md)
-1. [Pagina 4](https://github.com/Michale1235/proyecto/edit/main/README.md)
+1. [Presentación](https://github.com/Michale1235/proyecto)
+2. [Pagina 1](https://github.com/Michale1235/proyecto)
+2. [Pagina 2](https://github.com/Michale1235/proyecto)
+3. [Pagina 3](https://github.com/Michale1235/proyecto)
+1. [Pagina 4](https://github.com/Michale1235/proyecto)
