@@ -58,6 +58,11 @@ elif st.session_state.page == "Página 3: Gráfico":
 
 ###pagina 4
     
+elif st.session_state.page=="Página 4: Mapa":
+    st.image("huella ecologica.jpg", use_column_width=True)
+    st.title('Conclusiones')
+    st.write('Puntos principales')
+    st.write('Con base en los datos presentados en las gráficas, se concluye que la región de Lima muestra la mayor huella ecológica per cápita durante el período analizado. Esta conclusión se fundamenta en varios factores clave como alto consumo de recursos, densidad poblacional elevada, infraestructura y movilidad, y la creciente actividad económica y comercial.')
 
 
      
