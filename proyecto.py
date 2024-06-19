@@ -24,7 +24,7 @@ if st.session_state.page == "Página Principal":
     st.image("logoproyecto.jpeg", use_column_width=True)
     st.title('Huella ecológica')
     st.write('BIENVENIDOS')
-    st.write('#############')
+    st.write('Se busca realizar un análisis exploratorio de los datos de la huella ecológica per cápita departamental y por componentes, organizándolos para su mejor lectura. Estos datos, que abarcan el período de 2009 a 2016, fueron extraídos de la plataforma del Ministerio del Ambiente.')
 
 #pagina 1
 
