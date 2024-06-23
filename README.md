@@ -16,5 +16,5 @@
 1. [Presentación](https://github.com/Michale1235/proyecto)
 2. [Imagenes](https://github.com/Michale1235/proyecto/tree/main/imgen)
 2. [Excels](https://github.com/Michale1235/proyecto)
-3. [Pdfs](https://github.com/Michale1235/proyecto)
+3. [Pdfs](https://github.com/Michale1235/proyecto/tree/main/pdfs)
 1. [Pagina 4](https://github.com/Michale1235/proyecto)
