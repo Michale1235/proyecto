@@ -139,7 +139,25 @@ if st.session_state.page == "Página Principal":
    
 
 #pagina 1
-
+elif st.session_state.page == "Página 1: Por Areas y Años":
+    st.header('Análisis por Areas y Años') 
+    st.subheader('Se hace un recuento desde el año 2009-2016 por las 6 areas de los 24 departamentos del Perú')
+    
+    year = st.selectbox('seleciona el año que quieres visualizar los datos',
+                          ('2009', '2010', '2011','2012''2013', '2014', '2015', '2016'))
+    areas = st.selectbox('selecciona el area  que quieres visualizar', ('Area de Cultivos', 'Area de Pastoreo', 'Area de Bosques', 'Zonas de Pesca', 'Huella de Carbono','Areas Urbanas'))
+    
+    st.write('Seleccionó:', year)
+    st.write('Seleccionó:', areas)
+    
+    excel_file ='prueba.xlsx' 
+    sheet_name = year
+    sheet_name = areas
+    df=pd.read_excel(excel_file,
+                     sheet_name=sheet_name,
+                     usecols='A:H',
+                     header=6)
+    st.dataframe(df) ##...
 
 
 #pagina 2
