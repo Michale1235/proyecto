@@ -5,5 +5,7 @@ plotly
 matplotlib
 PyPDF2
 openpyxl
+streamlit_option_menu
+
 
 
