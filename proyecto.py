@@ -250,7 +250,7 @@ elif selecionar == "Página 3: Gráfico":
     with st.expander('Mi base de datos'):
         st.dataframe(df_filtred, use_container_width=True)
         df_filtred.describe()
-    pdf_file=open('interpretacion.pdf','rb')
+    pdf_file=open('pdfs/interpretacion.pdf','rb')
     pdf_reader=PyPDF2.PdfReader(pdf_file)
     page_obj=pdf_reader.pages[0]
     texto=page_obj.extract_text()
