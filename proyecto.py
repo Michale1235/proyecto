@@ -27,7 +27,7 @@ excel_file1='datos.xlsx'
 
 
 if selecionar=='Página Principal':
-    st.image("principal.jpg", use_column_width=True)
+    st.image("Principal.jpg", use_column_width=True)
     st.title('Huella ecológica')
     st.subheader("¡Acompáñanos a explorar este mundo del conocimiento!:wave:")
     pdf=open("Text1.pdf","rb")
