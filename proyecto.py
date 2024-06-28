@@ -6,10 +6,7 @@ import matplotlib.pyplot as plt
 import PyPDF2
 from streamlit_option_menu import option_menu
 
-st.set_page_config(
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+ 
 selecionar=option_menu(
     menu_title='Menu de opciones',
     options=['Página Principal','Página 1: Por Áreas y departamentos','Página 2: Grafico por Departamento','Página 3: Gráfico','Página 4: Conclusiones'],
