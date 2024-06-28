@@ -30,7 +30,7 @@ if selecionar=='Página Principal':
     st.image("Principal.jpg", use_column_width=True)
     st.title('Huella ecológica')
     st.subheader("¡Acompáñanos a explorar este mundo del conocimiento!:wave:")
-    pdf=open("Text1.pdf","rb")
+    pdf=open("pdfs/Text1.pdf","rb")
     pdf7=PyPDF2.PdfReader(pdf)
     page_obj=pdf7.pages[0]
     texto7=page_obj.extract_text()
@@ -41,7 +41,7 @@ if selecionar=='Página Principal':
         left_column, right_column= st.columns((2))
     with left_column:
         st.header("Definición")
-        pdf=open("Concepto2.pdf","rb")
+        pdf=open("pdfs/Concepto2.pdf","rb")
         pdf0=PyPDF2.PdfReader(pdf)
         page_obj=pdf0.pages[0]
         texto0=page_obj.extract_text()
@@ -59,7 +59,7 @@ if selecionar=='Página Principal':
          st.image("Carbono.jpg", use_column_width=True)
     with text_column:
         st.subheader("Área para absorción del carbono")
-        pdf=open("Área1.pdf","rb")
+        pdf=open("pdfs/Área1.pdf","rb")
         pdf1=PyPDF2.PdfReader(pdf)
         page_obj=pdf1.pages[0]
         texto1=page_obj.extract_text()
