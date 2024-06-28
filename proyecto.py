@@ -48,15 +48,15 @@ if selecionar=='Página Principal':
         st.write(texto0)
          
     with right_column:
-        st.image("Definición.jpg", use_column_width=True)
-        st.image("Definición2.png", use_column_width=True)
+        st.image("imgen/Definición.jpg", use_column_width=True)
+        st.image("imgen/Definición2.png", use_column_width=True)
     with st.container():
        st.write("---")
        st.header("Componentes")
        st.write("##")
     image_column, text_column = st.columns((1,2))
     with image_column:
-         st.image("Carbono.jpg", use_column_width=True)
+         st.image("imgen/Carbono.jpg", use_column_width=True)
     with text_column:
         st.subheader("Área para absorción del carbono")
         pdf=open("pdfs/Área1.pdf","rb")
@@ -70,10 +70,10 @@ if selecionar=='Página Principal':
     st.write("##")
     image_column, text_column = st.columns((1,2))
     with image_column:
-         st.image("Pastoreo.png", use_column_width=True)
+         st.image("imgen/Pastoreo.png", use_column_width=True)
     with text_column:
         st.subheader("Área de las tierras de pastoreo")
-        pdf=open("Área2.pdf","rb")
+        pdf=open("pdfs/Área2.pdf","rb")
         pdf2=PyPDF2.PdfReader(pdf)
         page_obj=pdf2.pages[0]
         texto2=page_obj.extract_text()
@@ -84,10 +84,10 @@ if selecionar=='Página Principal':
         st.write("##")
         image_column, text_column = st.columns((1,2))
     with image_column:
-        st.image("Forestal.jpg", use_column_width=True)
+        st.image("imgen/Forestal.jpg", use_column_width=True)
     with text_column:
         st.subheader("Área forestal")
-        pdf=open("Área3.pdf","rb")
+        pdf=open("pdfs/Área3.pdf","rb")
         pdf3=PyPDF2.PdfReader(pdf)
         page_obj=pdf3.pages[0]
         texto3=page_obj.extract_text()
@@ -98,10 +98,10 @@ if selecionar=='Página Principal':
         st.write("##")
         image_column, text_column = st.columns((1,2))
     with image_column:
-        st.image("zonas pesqueras.jpg", use_column_width=True)
+        st.image("imgen/zonas pesqueras.jpg", use_column_width=True)
     with text_column:
         st.subheader("Área de las zonas pesqueras")
-        pdf=open("Área4.pdf","rb")
+        pdf=open("pdfs/Área4.pdf","rb")
         pdf4=PyPDF2.PdfReader(pdf)
         page_obj=pdf4.pages[0]
         texto4=page_obj.extract_text()
@@ -112,10 +112,10 @@ if selecionar=='Página Principal':
         st.write("##")
         image_column, text_column = st.columns((1,2))
     with image_column:
-        st.image("Cultivos.jpg", use_column_width=True)
+        st.image("imgen/Cultivos.jpg", use_column_width=True)
     with text_column:
         st.subheader("Área de los cultivos")
-        pdf=open("Área5.pdf","rb")
+        pdf=open("pdfs/Área5.pdf","rb")
         pdf5=PyPDF2.PdfReader(pdf)
         page_obj=pdf5.pages[0]
         texto5=page_obj.extract_text()
@@ -126,10 +126,10 @@ if selecionar=='Página Principal':
         st.write("##")
     image_column, text_column = st.columns((1,2))
     with image_column:
-        st.image("Urbanización.jpg", use_column_width=True)
+        st.image("imgen/Urbanización.jpg", use_column_width=True)
     with text_column:
         st.subheader("Área de la tierra urbanizada")
-        pdf=open("Área6.pdf","rb")
+        pdf=open("pdfs/Área6.pdf","rb")
         pdf6=PyPDF2.PdfReader(pdf)
         page_obj=pdf6.pages[0]
         texto6=page_obj.extract_text()
