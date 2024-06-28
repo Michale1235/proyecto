@@ -22,6 +22,7 @@ departamentos=['AMAZONAS', 'ÁNCASH', 'APURÍMAC','AREQUIPA','AYACUCHO','CAJAMAR
                 'SAN MARTÍN','TACNA','TUMBES','UCAYALI']
 años=['2009', '2010', '2011','2012','2013','2014','2015','2016']
 areas=['Área de Cultivos','Área de Pastoreo','Área de Bosques','Zonas de pesca','Huella de Carbono','Áreas Urbanas']
+
 excel_file='prueba.xlsx'
 excel_file1='datos.xlsx'
 
@@ -224,6 +225,7 @@ elif selecionar == "Página 3: Gráfico":
                      usecols='A:H',
                      header=6)
     df.dropna(inplace=True)
+
     st.dataframe(df)
     df_filtred=df[df['Ámbito']!='Total']
     
@@ -241,12 +243,16 @@ elif selecionar == "Página 3: Gráfico":
                      names='Ámbito')
     st.plotly_chart(pie_chart) 
     huellas='Huella Regional Per Capita'
-    bar_chart=px.bar(df_filtred,
+    paleta_continua=px.colors.sequential.Jet
+    df_filtred11 = df.sort_values(by=huellas, ascending=False)
+    bar_chart=px.bar(df_filtred11,
                              x='Ámbito',
                              y=huellas,
-                             color_discrete_sequence=['green']*len(df)
+                             color='Ámbito',
+                             color_continuous_scale=paleta_continua,
                       )
     st.plotly_chart(bar_chart) 
+
     with st.expander('Mi base de datos'):
         st.dataframe(df_filtred, use_container_width=True)
         df_filtred.describe()
