@@ -166,7 +166,13 @@ elif selecionar=='Página 1: Por Áreas y departamentos':
             ax=ax
                 )
     st.pyplot(fig)
-    
+    line_chart=px.line(df_filtered3,
+                     x='Años',
+                     y=option1,
+                   
+                     color_discrete_sequence=['green']*len(df_filtered3)
+                     )
+    st.plotly_chart(line_chart, use_container_width=True)
 elif selecionar== "Página 2: Grafico por Departamento":
     st.title('Gráfico por departamentos')
 
