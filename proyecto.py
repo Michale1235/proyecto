@@ -6,10 +6,14 @@ import matplotlib.pyplot as plt
 import PyPDF2
 from streamlit_option_menu import option_menu
 
- 
+st.set_page_config(
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 selecionar=option_menu(
     menu_title='Menu de opciones',
     options=['Página Principal','Página 1: Por Áreas y departamentos','Página 2: Grafico por Departamento','Página 3: Gráfico','Página 4: Conclusiones'],
+    icons=['house','cloud-upload','kanban','activity','book'],
     orientation='horizontal',
     
     )
@@ -136,13 +140,13 @@ if selecionar=='Página Principal':
 
 
 elif selecionar=='Página 1: Por Áreas y departamentos':
-    st.title('Análisis por áreas y años')
+    st.title('Análisis por áreas y departamentos')
     col1,col2=st.columns(2)
     with col1:
-        option1 = st.selectbox('seleciona el año que quieres visualizar los datos',areas)
+        option1 = st.selectbox('Seleciona el área que quieres visualizar los datos',areas)
         st.write('seleccionó:', option1)
     with col2:
-        option =st.selectbox('Seleciona un año',departamentos)
+        option =st.selectbox('Selecciona un departamento',departamentos)
         st.write('Seleccionó:', option)
         
         sheet_name= años
@@ -156,22 +160,20 @@ elif selecionar=='Página 1: Por Áreas y departamentos':
         df = pd.concat([df.assign(Años=años) for años, df in df.items()], ignore_index=True)
       
         df_filtered3 = df[df['Ámbito'] == option][['Años', option1]]
-         
-        
-    line_chart=px.line(df_filtered3,
-                     x='Años',
-                     y=option1,
-                     color_discrete_sequence=['green']*len(df_filtered3)
-                     )
-    st.plotly_chart(line_chart)
+    fig, ax = plt.subplots(figsize=(8, 4))
+    df_filtered3.plot(x='Años',
+            y=option1,
+            ax=ax
+                )
+    st.pyplot(fig)
     
 elif selecionar== "Página 2: Grafico por Departamento":
-    st.title('Grafico por departamentos')
+    st.title('Gráfico por departamentos')
 
     col1,col2=st.columns(2)
     with col1:
-        option1 = st.selectbox('seleciona el año que quieres visualizar los datos',departamentos)
-        st.write('seleccionó:', option1)
+        option1 = st.selectbox('seleciona el departamento que quieres visualizar los datos',departamentos)
+        st.write('Seleccionó:', option1)
     with col2:
         option =st.selectbox('Seleciona un año',años)
         st.write('Seleccionó:', option)
@@ -210,7 +212,7 @@ elif selecionar== "Página 2: Grafico por Departamento":
 
 elif selecionar == "Página 3: Gráfico":
 
-    option = st.selectbox('seleciona el año que quieres visualizar los datos',
+    option = st.selectbox('Seleciona el año que quieres visualizar los datos',
                           ('2009', '2010', '2011','2012','2013','2014','2015','2016'))
     
     st.write('Seleccionó:', option)
@@ -223,16 +225,13 @@ elif selecionar == "Página 3: Gráfico":
                      header=6)
     df.dropna(inplace=True)
 
-    st.dataframe(df)
     df_filtred=df[df['Ámbito']!='Total']
-    
-
     Total_departamentos=df['Ámbito'].nunique()
     total_ambito=df['Huella Regional Per Capita'].mean()
 
     col1,col2=st.columns(2)
-    col1.metric('Departamentos', str(Total_departamentos))
-    col2.metric('Total de Huella ecológia en el peru', f'{total_ambito:,.5f}')
+    col1.metric('Total de departamentos', str(Total_departamentos))
+    col2.metric('Promedio de Huella ecológia en el peru', f'{total_ambito:,.5f}')
 
     pie_chart=px.pie(df_filtred,
                      title='Porcentaje de Huella Regional Per capita',
