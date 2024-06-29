@@ -275,6 +275,81 @@ elif selecionar=='Página 4: Conclusiones':
                                   options=df['Ámbito'].unique(),
                                   default=df['Ámbito'].unique()
                                   )
+elif st.session_state.page=="Página 4: Mapa":
+    st.image("PRINCIPALCO.png", use_column_width=True)
     
+    st.title('Comentarios finales')
+    st.write("---")
+    pdf=open("Conclusiones1.pdf","rb")
+    pdf7=PyPDF2.PdfReader(pdf)
+    page_obj=pdf7.pages[0]
+    texto7=page_obj.extract_text()
+    st.write(texto7)
+    with st.container():
+      st.write("---")
+    text_column, image_column= st.columns((2,1.5))
+    with text_column:
+        st.subheader("""
+                     Lima: Principal contribuyente a la Huella Ecológica
+                     """)
+        st.write("**La ciudad más contaminada de América Latina**")
+    with image_column:
+        st.image("Lima.png", use_column_width=True)
+    pdf=open("LIMA.pdf","rb")
+    pdf8=PyPDF2.PdfReader(pdf)
+    page_obj=pdf8.pages[0]
+    texto8=page_obj.extract_text()
+    st.write(texto8)
+    with st.container():
+      st.write("---")
+    image_column, text_column= st.columns((1,2))
+    with image_column:
+        st.image("HUANCAVELICA.jpg", use_column_width=True)
+    with text_column:
+        st.subheader("""
+                     Huancavelica: Ejemplo de baja Huella Ecológica
+                     """)
+        st.write("**Dentro de ella encierra los paisajes más impresionantes del país**")
+    pdf=open("Huancavelica1.pdf","rb")
+    pdf9=PyPDF2.PdfReader(pdf)
+    page_obj=pdf9.pages[0]
+    texto9=page_obj.extract_text()
+    st.write(texto9)
+    with st.container():
+      st.write("---")
+    text_column, image_column= st.columns((1,1))
+    with text_column:
+        st.subheader("""
+                     Tendencias de los cambios de huella en las áreas a lo largo del periodo evaluado
+                     """)
+        pdf=open("Áreas.pdf","rb")
+        pdf10=PyPDF2.PdfReader(pdf)
+        page_obj=pdf10.pages[0]
+        texto10=page_obj.extract_text()
+        st.write(texto10)  
+    with image_column:
+        st.image("ÁREAS0.jpg", use_column_width=True)
+        st.write("""
+             **Fuente: González A. Elizabeth. (2022). ¿Por qué se pierde la biodiversidad?**
+             """)
+    pdf=open("Subáreas.pdf","rb")
+    pdf11=PyPDF2.PdfReader(pdf)
+    page_obj=pdf11.pages[0]
+    texto11=page_obj.extract_text()
+    st.write(texto11)
+    st.write("---")
+    st.header('Acciones para minimizar la huella ecológica')
+    st.write("---")
+    st.subheader("¡Preserva la biodiversidad peruana!")
+    st.image("Progra.png", use_column_width=True)
+    st.write("""
+             **Fuente: Grupo N°3**
+             """)
+    pdf=open("frase.pdf","rb")
+    pdf12=PyPDF2.PdfReader(pdf)
+    page_obj=pdf12.pages[0]
+    texto12=page_obj.extract_text()
+    st.write(texto12)
+    st.write("[Ver más](https://youtu.be/g-V9CS-MHrI)")    
 
      
