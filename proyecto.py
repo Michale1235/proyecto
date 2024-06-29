@@ -165,6 +165,7 @@ elif selecionar=='Página 1: Por Áreas y departamentos':
             y=option1,
             ax=ax
                 )
+    plt.tight_layout(pad=3.0)
     st.pyplot(fig)
 
 elif selecionar== "Página 2: Grafico por Departamento":
