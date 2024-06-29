@@ -160,19 +160,13 @@ elif selecionar=='Página 1: Por Áreas y departamentos':
         df = pd.concat([df.assign(Años=años) for años, df in df.items()], ignore_index=True)
       
         df_filtered3 = df[df['Ámbito'] == option][['Años', option1]]
-    fig, ax = plt.subplots(figsize=(8, 4))
+    fig, ax = plt.subplots(figsize=(4, 4))
     df_filtered3.plot(x='Años',
             y=option1,
             ax=ax
                 )
     st.pyplot(fig)
-    line_chart=px.line(df_filtered3,
-                     x='Años',
-                     y=option1,
-                   
-                     color_discrete_sequence=['green']*len(df_filtered3)
-                     )
-    st.plotly_chart(line_chart, use_container_width=True)
+
 elif selecionar== "Página 2: Grafico por Departamento":
     st.title('Gráfico por departamentos')
 
