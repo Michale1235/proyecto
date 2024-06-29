@@ -160,10 +160,12 @@ elif selecionar=='Página 1: Por Áreas y departamentos':
         df = pd.concat([df.assign(Años=años) for años, df in df.items()], ignore_index=True)
       
         df_filtered3 = df[df['Ámbito'] == option][['Años', option1]]
-    fig, ax = plt.subplots(figsize=(10, 3))
+    fig, ax = plt.subplots(figsize=(10, 4))
     df_filtered3.plot(x='Años',
             y=option1,
-            ax=ax
+            ax=ax,
+            color='red',
+            marker='o'
                 )
     plt.tight_layout(pad=3.0)
     st.pyplot(fig)
