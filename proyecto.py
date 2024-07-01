@@ -59,13 +59,12 @@ if selecionar=='Página Principal':
         page_obj=pdf1.pages[0]
         texto1=page_obj.extract_text()
         st.write(texto1)
-
     with st.container():
-      st.write("---")
-    st.write("##")
-    image_column, text_column = st.columns((1,2))
+        st.write("---")
+        st.write("##")
+        image_column, text_column = st.columns((1,2))
     with image_column:
-         st.image("imgen/Pastoreo.png", use_column_width=True)
+        st.image("imgen/Pastoreo.png", use_column_width=True)
     with text_column:
         st.subheader("Área de las tierras de pastoreo")
         pdf=open("pdfs/Área2.pdf","rb")
@@ -73,7 +72,6 @@ if selecionar=='Página Principal':
         page_obj=pdf2.pages[0]
         texto2=page_obj.extract_text()
         st.write(texto2)
-
     with st.container():
         st.write("---")
         st.write("##")
@@ -87,7 +85,6 @@ if selecionar=='Página Principal':
         page_obj=pdf3.pages[0]
         texto3=page_obj.extract_text()
         st.write(texto3)
-        
     with st.container():
         st.write("---")
         st.write("##")
@@ -101,7 +98,6 @@ if selecionar=='Página Principal':
         page_obj=pdf4.pages[0]
         texto4=page_obj.extract_text()
         st.write(texto4)
-         
     with st.container():
         st.write("---")
         st.write("##")
@@ -190,9 +186,7 @@ elif selecionar== "Página 2: Grafico por Departamento":
                      y='Ámbito',
                      text_auto=True,
                      color=option1,
-                     color_continuous_scale=paleta_continua,
-                     
-                     )
+                     color_continuous_scale=paleta_continua)
     st.plotly_chart(bar_chart,use_container_width=True)
 
 elif selecionar == "Página 3: Gráfico":
@@ -242,10 +236,10 @@ elif selecionar == "Página 3: Gráfico":
     st.write(texto)
 
 elif selecionar=='Página 4: Conclusiones':
-    st.image("PRINCIPALCO.png", use_column_width=True)
+    st.image("imgen/PRINCIPALCO.png", use_column_width=True)
     st.title('Comentarios finales')
     st.write("---")
-    pdf=open("Conclusiones1.pdf","rb")
+    pdf=open("pdfs/Conclusiones1.pdf","rb")
     pdf7=PyPDF2.PdfReader(pdf)
     page_obj=pdf7.pages[0]
     texto7=page_obj.extract_text()
@@ -257,13 +251,13 @@ elif selecionar=='Página 4: Conclusiones':
         st.subheader("""
                      Tendencias de los cambios de huella en las áreas a lo largo del periodo evaluado
                      """)
-        pdf=open("Áreas.pdf","rb")
+        pdf=open("pdfs/Áreas.pdf","rb")
         pdf10=PyPDF2.PdfReader(pdf)
         page_obj=pdf10.pages[0]
         texto10=page_obj.extract_text()
         st.write(texto10)  
     with image_column:
-        st.image("ÁREAS0.jpg", use_column_width=True)
+        st.image("imgen/ÁREAS0.jpg", use_column_width=True)
         st.write("""
              *Fuente: González A. Elizabeth. (2022). ¿Por qué se pierde la biodiversidad?*
              """)
@@ -271,11 +265,11 @@ elif selecionar=='Página 4: Conclusiones':
     st.header('Acciones para minimizar la huella ecológica')
     st.write("---")
     st.subheader("¡Preserva la biodiversidad peruana!")
-    st.image("Progra.png", use_column_width=True)
+    st.image("imgen/Progra.png", use_column_width=True)
     st.write("""
              *Fuente: Grupo N°3*
              """)
-    pdf=open("frase.pdf","rb")
+    pdf=open("pdfs/frase.pdf","rb")
     pdf12=PyPDF2.PdfReader(pdf)
     page_obj=pdf12.pages[0]
     texto12=page_obj.extract_text()
