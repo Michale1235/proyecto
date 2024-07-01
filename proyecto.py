@@ -196,13 +196,11 @@ elif selecionar== "Página 2: Grafico por Departamento":
     st.plotly_chart(bar_chart,use_container_width=True)
 
 elif selecionar == "Página 3: Gráfico":
-
     option = st.selectbox('Seleciona el año que quieres visualizar los datos',
                           ('2009', '2010', '2011','2012','2013','2014','2015','2016'))
     
     st.write('Seleccionó:', option)
     st.title('Gráfico de Huella Ecológica')
-    excel_file='prueba.xlsx'
     sheet_name= option
     df=pd.read_excel(excel_file,
                      sheet_name=sheet_name,
