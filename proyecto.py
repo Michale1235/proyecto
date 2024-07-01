@@ -24,8 +24,8 @@ departamentos=['AMAZONAS', 'ÁNCASH', 'APURÍMAC','AREQUIPA','AYACUCHO','CAJAMAR
 años=['2009', '2010', '2011','2012','2013','2014','2015','2016']
 areas=['Área de Cultivos','Área de Pastoreo','Área de Bosques','Zonas de pesca','Huella de Carbono','Áreas Urbanas']
 
-excel_file='prueba.xlsx'
-excel_file1='datos.xlsx'
+excel_file='excels/huellaecologicaregional.xlsx'
+excel_file1='excels/datos.xlsx'
 
 
 if selecionar=='Página Principal':
@@ -165,7 +165,7 @@ elif selecionar=='Página 1: Por Áreas y departamentos':
             y=option1,
             ax=ax,
             color='red',
-            marker='o'
+            marker='o',
                 )
     plt.tight_layout(pad=3.0)
     st.pyplot(fig)
@@ -262,20 +262,6 @@ elif selecionar == "Página 3: Gráfico":
     st.write(texto)
 
 elif selecionar=='Página 4: Conclusiones':
-    st.title('Grafico por departamentos')
-    excel_file='prueba.xlsx'
-
-    df=pd.read_excel(excel_file,
-                     engine='openpyxl',
-                     
-                     sheet_name='2009',
-                     usecols='A:H',
-                     header=6)
-    ambito=st.multiselect('Sleciona que datos quieres vsualizar',
-                                  options=df['Ámbito'].unique(),
-                                  default=df['Ámbito'].unique()
-                                  )
-elif st.session_state.page=="Página 4: Mapa":
     st.image("PRINCIPALCO.png", use_column_width=True)
     
     st.title('Comentarios finales')
@@ -292,7 +278,7 @@ elif st.session_state.page=="Página 4: Mapa":
         st.subheader("""
                      Lima: Principal contribuyente a la Huella Ecológica
                      """)
-        st.write("**La ciudad más contaminada de América Latina**")
+        st.write("*La ciudad más contaminada de América Latina*")
     with image_column:
         st.image("Lima.png", use_column_width=True)
     pdf=open("LIMA.pdf","rb")
@@ -309,7 +295,7 @@ elif st.session_state.page=="Página 4: Mapa":
         st.subheader("""
                      Huancavelica: Ejemplo de baja Huella Ecológica
                      """)
-        st.write("**Dentro de ella encierra los paisajes más impresionantes del país**")
+        st.write("*Dentro de ella encierra los paisajes más impresionantes del país*")
     pdf=open("Huancavelica1.pdf","rb")
     pdf9=PyPDF2.PdfReader(pdf)
     page_obj=pdf9.pages[0]
@@ -330,7 +316,7 @@ elif st.session_state.page=="Página 4: Mapa":
     with image_column:
         st.image("ÁREAS0.jpg", use_column_width=True)
         st.write("""
-             **Fuente: González A. Elizabeth. (2022). ¿Por qué se pierde la biodiversidad?**
+             *Fuente: González A. Elizabeth. (2022). ¿Por qué se pierde la biodiversidad?*
              """)
     pdf=open("Subáreas.pdf","rb")
     pdf11=PyPDF2.PdfReader(pdf)
@@ -343,13 +329,14 @@ elif st.session_state.page=="Página 4: Mapa":
     st.subheader("¡Preserva la biodiversidad peruana!")
     st.image("Progra.png", use_column_width=True)
     st.write("""
-             **Fuente: Grupo N°3**
+             *Fuente: Grupo N°3*
              """)
     pdf=open("frase.pdf","rb")
     pdf12=PyPDF2.PdfReader(pdf)
     page_obj=pdf12.pages[0]
     texto12=page_obj.extract_text()
     st.write(texto12)
-    st.write("[Ver más](https://youtu.be/g-V9CS-MHrI)")    
+    st.write("[Ver más](https://youtu.be/g-V9CS-MHrI)")
+    
 
      
