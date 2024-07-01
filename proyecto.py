@@ -8,16 +8,12 @@ from streamlit_option_menu import option_menu
 
 st.set_page_config(
     layout="wide",
-    initial_sidebar_state="expanded"
-)
+    initial_sidebar_state="expanded")
 selecionar=option_menu(
     menu_title='Menu de opciones',
     options=['Página Principal','Página 1: Por Áreas y departamentos','Página 2: Grafico por Departamento','Página 3: Gráfico','Página 4: Conclusiones'],
     icons=['house','cloud-upload','kanban','activity','book'],
-    orientation='horizontal',
-    
-    )
-
+    orientation='horizontal')
 departamentos=['AMAZONAS', 'ÁNCASH', 'APURÍMAC','AREQUIPA','AYACUCHO','CAJAMARCA','CUSCO','HUANCAVELICA','HUÁNUCO','ICA','JUNÍN',
                 'LA LIBERTAD','LAMBAYEQUE','LIMA','LORETO','MADRE DE DIOS','MOQUEGUA','PASCO','PIURA','PUNO',
                 'SAN MARTÍN','TACNA','TUMBES','UCAYALI']
@@ -26,7 +22,6 @@ areas=['Área de Cultivos','Área de Pastoreo','Área de Bosques','Zonas de pesc
 
 excel_file='excels/huellaecologicaregional.xlsx'
 excel_file1='excels/datos.xlsx'
-
 
 if selecionar=='Página Principal':
     st.image("Principal.jpg", use_column_width=True)
@@ -37,7 +32,6 @@ if selecionar=='Página Principal':
     page_obj=pdf7.pages[0]
     texto7=page_obj.extract_text()
     st.write(texto7)
-    
     with st.container():
         st.write("---")
         left_column, right_column= st.columns((2))
@@ -48,7 +42,6 @@ if selecionar=='Página Principal':
         page_obj=pdf0.pages[0]
         texto0=page_obj.extract_text()
         st.write(texto0)
-         
     with right_column:
         st.image("imgen/Definición.jpg", use_column_width=True)
         st.image("imgen/Definición2.png", use_column_width=True)
@@ -137,8 +130,6 @@ if selecionar=='Página Principal':
         texto6=page_obj.extract_text()
         st.write(texto6)
     
-
-
 elif selecionar=='Página 1: Por Áreas y departamentos':
     st.title('Análisis por áreas y departamentos')
     col1,col2=st.columns(2)
@@ -148,17 +139,13 @@ elif selecionar=='Página 1: Por Áreas y departamentos':
     with col2:
         option =st.selectbox('Selecciona un departamento',departamentos)
         st.write('Seleccionó:', option)
-        
         sheet_name= años
         sheet_name1=option1
-
- 
         df=pd.read_excel(excel_file,
                      sheet_name=sheet_name,
                      usecols='A:H',
                      header=6)
         df = pd.concat([df.assign(Años=años) for años, df in df.items()], ignore_index=True)
-      
         df_filtered3 = df[df['Ámbito'] == option][['Años', option1]]
     fig, ax = plt.subplots(figsize=(10, 4))
     df_filtered3.plot(x='Años',
@@ -172,7 +159,6 @@ elif selecionar=='Página 1: Por Áreas y departamentos':
 
 elif selecionar== "Página 2: Grafico por Departamento":
     st.title('Gráfico por departamentos')
-
     col1,col2=st.columns(2)
     with col1:
         option1 = st.selectbox('seleciona el departamento que quieres visualizar los datos',departamentos)
@@ -180,18 +166,14 @@ elif selecionar== "Página 2: Grafico por Departamento":
     with col2:
         option =st.selectbox('Seleciona un año',años)
         st.write('Seleccionó:', option)
-        
         sheet_name= option
         sheet_name1=option1
-
         df=pd.read_excel(excel_file1,
                      sheet_name=sheet_name,
                      usecols='A:Y',
                      header=2)
         paleta_continua=px.colors.sequential.Jet
         df_filtred=df[df['Ámbito']!='Huella Regional Per Capita']
-        
-
     c1,c2=st.columns(2)
 
     Total_departamentos=df['Ámbito'].nunique()
@@ -263,7 +245,6 @@ elif selecionar == "Página 3: Gráfico":
 
 elif selecionar=='Página 4: Conclusiones':
     st.image("PRINCIPALCO.png", use_column_width=True)
-    
     st.title('Comentarios finales')
     st.write("---")
     pdf=open("Conclusiones1.pdf","rb")
@@ -271,36 +252,6 @@ elif selecionar=='Página 4: Conclusiones':
     page_obj=pdf7.pages[0]
     texto7=page_obj.extract_text()
     st.write(texto7)
-    with st.container():
-      st.write("---")
-    text_column, image_column= st.columns((2,1.5))
-    with text_column:
-        st.subheader("""
-                     Lima: Principal contribuyente a la Huella Ecológica
-                     """)
-        st.write("*La ciudad más contaminada de América Latina*")
-    with image_column:
-        st.image("Lima.png", use_column_width=True)
-    pdf=open("LIMA.pdf","rb")
-    pdf8=PyPDF2.PdfReader(pdf)
-    page_obj=pdf8.pages[0]
-    texto8=page_obj.extract_text()
-    st.write(texto8)
-    with st.container():
-      st.write("---")
-    image_column, text_column= st.columns((1,2))
-    with image_column:
-        st.image("HUANCAVELICA.jpg", use_column_width=True)
-    with text_column:
-        st.subheader("""
-                     Huancavelica: Ejemplo de baja Huella Ecológica
-                     """)
-        st.write("*Dentro de ella encierra los paisajes más impresionantes del país*")
-    pdf=open("Huancavelica1.pdf","rb")
-    pdf9=PyPDF2.PdfReader(pdf)
-    page_obj=pdf9.pages[0]
-    texto9=page_obj.extract_text()
-    st.write(texto9)
     with st.container():
       st.write("---")
     text_column, image_column= st.columns((1,1))
@@ -318,11 +269,6 @@ elif selecionar=='Página 4: Conclusiones':
         st.write("""
              *Fuente: González A. Elizabeth. (2022). ¿Por qué se pierde la biodiversidad?*
              """)
-    pdf=open("Subáreas.pdf","rb")
-    pdf11=PyPDF2.PdfReader(pdf)
-    page_obj=pdf11.pages[0]
-    texto11=page_obj.extract_text()
-    st.write(texto11)
     st.write("---")
     st.header('Acciones para minimizar la huella ecológica')
     st.write("---")
@@ -338,5 +284,3 @@ elif selecionar=='Página 4: Conclusiones':
     st.write(texto12)
     st.write("[Ver más](https://youtu.be/g-V9CS-MHrI)")
     
-
-     
