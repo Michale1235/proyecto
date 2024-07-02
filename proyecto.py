@@ -233,31 +233,6 @@ elif selecionar=='Conclusiones':
     page_obj=pdf_reader.pages[0]
     texto=page_obj.extract_text()
     st.write(texto)
-    st.image("imgen/PRINCIPALCO.png", use_column_width=True)
-    st.title('Comentarios finales')
-    st.write("---")
-    pdf=open("pdfs/Conclusiones1.pdf","rb")
-    pdf7=PyPDF2.PdfReader(pdf)
-    page_obj=pdf7.pages[0]
-    texto7=page_obj.extract_text()
-    st.write(texto7)
-    with st.container():
-      st.write("---")
-    text_column, image_column= st.columns((1,1))
-    with text_column:
-        st.subheader("""
-                     Tendencias de los cambios de huella en las áreas a lo largo del periodo evaluado
-                     """)
-        pdf=open("pdfs/Áreas.pdf","rb")
-        pdf10=PyPDF2.PdfReader(pdf)
-        page_obj=pdf10.pages[0]
-        texto10=page_obj.extract_text()
-        st.write(texto10)  
-    with image_column:
-        st.image("imgen/ÁREAS0.jpg", use_column_width=True)
-        st.write("""
-             *Fuente: González A. Elizabeth. (2022). ¿Por qué se pierde la biodiversidad?*
-             """)
     st.write("---")
     st.header('Acciones para minimizar la huella ecológica')
     st.write("---")
