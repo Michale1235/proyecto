@@ -11,7 +11,7 @@ st.set_page_config(
     initial_sidebar_state="expanded")
 selecionar=option_menu(
     menu_title='Menu de opciones',
-    options=['Página Principal','Página 1: Por Áreas y departamentos','Página 2: Grafico por Departamento','Página 3: Gráfico','Página 4: Conclusiones',
+    options=['Página Principal','Gráfico 1: Áreas y departamentos','Gráfico 2: Departamentos y años','Gráfico 3: Huella ecológica anual','Conclusiones',
              'Sobre nosotros'],
     icons=['house','cloud-upload','kanban','activity','book','person'],
     orientation='horizontal')
@@ -43,13 +43,14 @@ if selecionar=='Página Principal':
         page_obj=pdf0.pages[0]
         texto0=page_obj.extract_text()
         st.write(texto0)
+        st.write("[Fuente:](https://sinia.minam.gob.pe/sites/default/files/sinia/archivos/public/docs/2078.pdf)")
     with right_column:
         st.image("imgen/Definición.jpg", use_column_width=True)
         st.image("imgen/Definición2.png", use_column_width=True)
     with st.container():
-       st.write("---")
-       st.header("Componentes")
-       st.write("##")
+        st.write("---")
+        st.header("Componentes")
+        st.write("##")
     image_column, text_column = st.columns((1,2))
     with image_column:
          st.image("imgen/Carbono.jpg", use_column_width=True)
@@ -60,6 +61,7 @@ if selecionar=='Página Principal':
         page_obj=pdf1.pages[0]
         texto1=page_obj.extract_text()
         st.write(texto1)
+        st.write("[Fuente: ](https://www.ciudad.org.pe/wp-content/uploads/2014/11/huella_ecologica.pdf)")
     with st.container():
         st.write("---")
         st.write("##")
@@ -73,6 +75,7 @@ if selecionar=='Página Principal':
         page_obj=pdf2.pages[0]
         texto2=page_obj.extract_text()
         st.write(texto2)
+        st.write("[Fuente: ](https://repositorio.uncp.edu.pe/bitstream/handle/20.500.12894/6399/T010_72320900_T.pdf?sequence=1)")
     with st.container():
         st.write("---")
         st.write("##")
@@ -86,6 +89,7 @@ if selecionar=='Página Principal':
         page_obj=pdf3.pages[0]
         texto3=page_obj.extract_text()
         st.write(texto3)
+        st.write("[Fuente: ](https://coeeci.org.pe/calcula-tu-huella-forestal/)")
     with st.container():
         st.write("---")
         st.write("##")
@@ -99,6 +103,7 @@ if selecionar=='Página Principal':
         page_obj=pdf4.pages[0]
         texto4=page_obj.extract_text()
         st.write(texto4)
+        st.write("[Fuente: ](https://perusostenible.org/wp-content/uploads/2023/06/Hojas-de-Ruta-Sectoriales-informe-pesca.pdf)")
     with st.container():
         st.write("---")
         st.write("##")
@@ -112,7 +117,7 @@ if selecionar=='Página Principal':
         page_obj=pdf5.pages[0]
         texto5=page_obj.extract_text()
         st.write(texto5)
-         
+        st.write("[Fuente: ](https://www.redalyc.org/journal/5717/571763394006/html/)")
     with st.container():
         st.write("---")
         st.write("##")
@@ -126,8 +131,8 @@ if selecionar=='Página Principal':
         page_obj=pdf6.pages[0]
         texto6=page_obj.extract_text()
         st.write(texto6)
-    
-elif selecionar=='Página 1: Por Áreas y departamentos':
+        st.write("[Fuente: ](https://www.euskadi.eus/contenidos/documentacion/huella_ecologica/es_def/adjuntos/Huella-Ecologica_pais_vasco_WEB.pdf)")
+elif selecionar=='Gráfico 1: Áreas y departamentos':
     st.title('Análisis por áreas y departamentos')
     col1,col2=st.columns(2)
     with col1:
@@ -153,8 +158,8 @@ elif selecionar=='Página 1: Por Áreas y departamentos':
     ax.set_ylabel('hectáreas globales (hag)')
     plt.tight_layout(pad=3.0)
     st.pyplot(fig)
-elif selecionar== "Página 2: Grafico por Departamento":
-    st.title('Gráfico por departamentos')
+elif selecionar== "Gráfico 2: Departamentos y años":
+    st.title('Análisis por departamentos y años')
     col1,col2=st.columns(2)
     with col1:
         option1 = st.selectbox('seleciona el departamento que quieres visualizar los datos',departamentos)
@@ -184,7 +189,8 @@ elif selecionar== "Página 2: Grafico por Departamento":
                      color=option1,
                      color_continuous_scale=paleta_continua)
     st.plotly_chart(bar_chart,use_container_width=True)
-elif selecionar == "Página 3: Gráfico":
+elif selecionar == "Gráfico 3: Huella ecológica anual":
+    st.title('Análisis de la huella ecológica en el Perú')
     option = st.selectbox('Seleciona el año que quieres visualizar los datos',
                           ('2009', '2010', '2011','2012','2013','2014','2015','2016'))
     st.write('Seleccionó:', option)
@@ -267,7 +273,7 @@ elif selecionar=='Página 4: Conclusiones':
     st.write("[Ver más](https://youtu.be/g-V9CS-MHrI)")
 elif selecionar=='Sobre nosotros':
     st.title('Colaboradores')
-    video=open('Integrantes/equipo.mp4', 'rb')
+    video=open('equipo.mp4', 'rb')
     video1=video.read()
     st.video(video1)
     
