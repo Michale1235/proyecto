@@ -226,12 +226,13 @@ elif selecionar == "Gráfico 3: Huella ecológica anual":
     with st.expander('Mi base de datos'):
         st.dataframe(df_filtred, use_container_width=True)
         df_filtred.describe()
+
+elif selecionar=='Página 4: Conclusiones':
     pdf_file=open('pdfs/interpretacion.pdf','rb')
     pdf_reader=PyPDF2.PdfReader(pdf_file)
     page_obj=pdf_reader.pages[0]
     texto=page_obj.extract_text()
     st.write(texto)
-elif selecionar=='Página 4: Conclusiones':
     st.image("imgen/PRINCIPALCO.png", use_column_width=True)
     st.title('Comentarios finales')
     st.write("---")
