@@ -11,8 +11,9 @@ st.set_page_config(
     initial_sidebar_state="expanded")
 selecionar=option_menu(
     menu_title='Menu de opciones',
-    options=['Página Principal','Página 1: Por Áreas y departamentos','Página 2: Grafico por Departamento','Página 3: Gráfico','Página 4: Conclusiones'],
-    icons=['house','cloud-upload','kanban','activity','book'],
+    options=['Página Principal','Página 1: Por Áreas y departamentos','Página 2: Grafico por Departamento','Página 3: Gráfico','Página 4: Conclusiones',
+             'Sobre nosotros'],
+    icons=['house','cloud-upload','kanban','activity','book','person'],
     orientation='horizontal')
 departamentos=['AMAZONAS', 'ÁNCASH', 'APURÍMAC','AREQUIPA','AYACUCHO','CAJAMARCA','CUSCO','HUANCAVELICA','HUÁNUCO','ICA','JUNÍN',
                 'LA LIBERTAD','LAMBAYEQUE','LIMA','LORETO','MADRE DE DIOS','MOQUEGUA','PASCO','PIURA','PUNO',
@@ -148,12 +149,10 @@ elif selecionar=='Página 1: Por Áreas y departamentos':
             y=option1,
             ax=ax,
             color='red',
-            marker='o',
-                )
+            marker='o')
     ax.set_ylabel('hectáreas globales (hag)')
     plt.tight_layout(pad=3.0)
     st.pyplot(fig)
-
 elif selecionar== "Página 2: Grafico por Departamento":
     st.title('Gráfico por departamentos')
     col1,col2=st.columns(2)
@@ -172,15 +171,11 @@ elif selecionar== "Página 2: Grafico por Departamento":
         paleta_continua=px.colors.sequential.Jet
         df_filtred=df[df['Ámbito']!='Huella Regional Per Capita']
     c1,c2=st.columns(2)
-
     Total_departamentos=df['Ámbito'].nunique()
     total_ambito=df_filtred[option1].sum()
-
     col1,col2=st.columns(2)
     col1.metric('Numero de huellas ecologicas', value=df_filtred.Ámbito.count(), delta='Ámbito')
     col2.metric('Total de Huella ecológia en el departamento', f'{total_ambito:,.4f}', delta='total')
-
-    
     df_filtred1=df_filtred.groupby('Ámbito')[option1].sum().reset_index().sort_values(by=option1)
     bar_chart=px.bar(df_filtred1,
                      x=option1,
@@ -189,11 +184,9 @@ elif selecionar== "Página 2: Grafico por Departamento":
                      color=option1,
                      color_continuous_scale=paleta_continua)
     st.plotly_chart(bar_chart,use_container_width=True)
-
 elif selecionar == "Página 3: Gráfico":
     option = st.selectbox('Seleciona el año que quieres visualizar los datos',
                           ('2009', '2010', '2011','2012','2013','2014','2015','2016'))
-    
     st.write('Seleccionó:', option)
     st.title('Gráfico de Huella Ecológica')
     sheet_name= option
@@ -210,7 +203,6 @@ elif selecionar == "Página 3: Gráfico":
     col1,col2=st.columns(2)
     col1.metric('Total de departamentos', str(Total_departamentos))
     col2.metric('Promedio de Huella ecológia en el peru', f'{total_ambito:,.5f}')
-
     pie_chart=px.pie(df_filtred,
                      title='Porcentaje de Huella Regional Per capita',
                      values='Huella Regional Per Capita',
@@ -223,10 +215,8 @@ elif selecionar == "Página 3: Gráfico":
                              x='Ámbito',
                              y=huellas,
                              color='Ámbito',
-                             color_continuous_scale=paleta_continua,
-                      )
+                             color_continuous_scale=paleta_continua)
     st.plotly_chart(bar_chart) 
-
     with st.expander('Mi base de datos'):
         st.dataframe(df_filtred, use_container_width=True)
         df_filtred.describe()
@@ -235,7 +225,6 @@ elif selecionar == "Página 3: Gráfico":
     page_obj=pdf_reader.pages[0]
     texto=page_obj.extract_text()
     st.write(texto)
-
 elif selecionar=='Página 4: Conclusiones':
     st.image("imgen/PRINCIPALCO.png", use_column_width=True)
     st.title('Comentarios finales')
@@ -276,4 +265,9 @@ elif selecionar=='Página 4: Conclusiones':
     texto12=page_obj.extract_text()
     st.write(texto12)
     st.write("[Ver más](https://youtu.be/g-V9CS-MHrI)")
+elif selecionar=='Sobre nosotros':
+    st.title('Colaboradores')
+    video=open('Integrantes/equipo.mp4', 'rb')
+    video1=video.read()
+    st.video(video1)
     
