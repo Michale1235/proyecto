@@ -227,7 +227,7 @@ elif selecionar == "Gráfico 3: Huella ecológica anual":
         st.dataframe(df_filtred, use_container_width=True)
         df_filtred.describe()
 
-elif selecionar=='Página 4: Conclusiones':
+elif selecionar=='Conclusiones':
     pdf_file=open('pdfs/interpretacion.pdf','rb')
     pdf_reader=PyPDF2.PdfReader(pdf_file)
     page_obj=pdf_reader.pages[0]
