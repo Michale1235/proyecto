@@ -11,7 +11,7 @@ st.set_page_config(
     initial_sidebar_state="expanded")
 selecionar=option_menu(
     menu_title='Menu de opciones',
-    options=['Página Principal','Gráfico 1: Áreas y departamentos','Gráfico 2: Departamentos y años','Gráfico 3: Huella ecológica anual','Conclusiones',
+    options=['Página Principal','Gráfico 1: Áreas y departamentos','Gráfico 2: Departamentos y años','Gráfico 3: Huella ecológica anual','Conclución',
              'Sobre nosotros'],
     icons=['house','cloud-upload','kanban','activity','book','person'],
     orientation='horizontal')
@@ -227,7 +227,7 @@ elif selecionar == "Gráfico 3: Huella ecológica anual":
         st.dataframe(df_filtred, use_container_width=True)
         df_filtred.describe()
 
-elif selecionar=='Conclusiones':
+elif selecionar=='Conclución':
     pdf_file=open('pdfs/interpretacion.pdf','rb')
     pdf_reader=PyPDF2.PdfReader(pdf_file)
     page_obj=pdf_reader.pages[0]
@@ -249,7 +249,7 @@ elif selecionar=='Conclusiones':
     st.write("[Ver más](https://youtu.be/g-V9CS-MHrI)")
 elif selecionar=='Sobre nosotros':
     st.title('Colaboradores')
-    video=open('equipo.mp4', 'rb')
+    video=open('Integrantes/equipo.mp4', 'rb')
     video1=video.read()
     st.video(video1)
     
