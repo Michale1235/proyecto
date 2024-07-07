@@ -51,9 +51,9 @@ if selecionar=='Página Principal':
         st.write("---")
         st.header("Componentes")
         st.write("##")
-    image_column, text_column = st.columns((1,2))
+        image_column, text_column = st.columns((1,2))
     with image_column:
-         st.image("imgen/Carbono.jpg", use_column_width=True)
+        st.image("imgen/Carbono.jpg", use_column_width=True)
     with text_column:
         st.subheader("Área para absorción del carbono")
         pdf=open("pdfs/Área1.pdf","rb")
