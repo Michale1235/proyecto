@@ -63,7 +63,6 @@ if selecionar=='Página Principal':
         st.write("[Fuente: ](https://www.ciudad.org.pe/wp-content/uploads/2014/11/huella_ecologica.pdf)")
     with st.container():
         st.write("---")
-        st.write("##")
         image_column, text_column = st.columns((1,2))
     with image_column:
         st.image("imgen/Pastoreo.png", use_column_width=True)
@@ -77,7 +76,6 @@ if selecionar=='Página Principal':
         st.write("[Fuente: ](https://repositorio.uncp.edu.pe/bitstream/handle/20.500.12894/6399/T010_72320900_T.pdf?sequence=1)")
     with st.container():
         st.write("---")
-        st.write("##")
         image_column, text_column = st.columns((1,2))
     with image_column:
         st.image("imgen/Forestal.jpg", use_column_width=True)
@@ -91,7 +89,6 @@ if selecionar=='Página Principal':
         st.write("[Fuente: ](https://coeeci.org.pe/calcula-tu-huella-forestal/)")
     with st.container():
         st.write("---")
-        st.write("##")
         image_column, text_column = st.columns((1,2))
     with image_column:
         st.image("imgen/zonas pesqueras.jpg", use_column_width=True)
@@ -105,7 +102,6 @@ if selecionar=='Página Principal':
         st.write("[Fuente: ](https://perusostenible.org/wp-content/uploads/2023/06/Hojas-de-Ruta-Sectoriales-informe-pesca.pdf)")
     with st.container():
         st.write("---")
-        st.write("##")
         image_column, text_column = st.columns((1,2))
     with image_column:
         st.image("imgen/Cultivos.jpg", use_column_width=True)
@@ -119,8 +115,7 @@ if selecionar=='Página Principal':
         st.write("[Fuente: ](https://www.redalyc.org/journal/5717/571763394006/html/)")
     with st.container():
         st.write("---")
-        st.write("##")
-    image_column, text_column = st.columns((1,2))
+        image_column, text_column = st.columns((1,2))
     with image_column:
         st.image("imgen/Urbanización.jpg", use_column_width=True)
     with text_column:
